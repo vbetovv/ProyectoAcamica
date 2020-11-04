@@ -1,0 +1,43 @@
+.strikethrough {
+  text-decoration: line-through;
+}
+.bluedot {
+  color: $color-secondary;
+}
+.link-hover {
+  transition: 0.35s ease;
+  &:hover {
+    @extend .strikethrough;
+    color: $color-primary;
+  }
+  &:active {
+    @extend .strikethrough;
+    color: #060a24;
+    opacity: 0.56;
+  }
+}
+.vibrate {
+  &:hover {
+    animation: vibration 0.3s 1;
+  }
+}
+.container-sm {
+  margin: 0 1rem;
+  @media screen and (min-width: $breakpoint-lg) {
+    max-width: 1040px;
+    margin: auto;
+  }
+}
+.container-lg {
+  margin: 0 1rem;
+  @media screen and (min-width: $breakpoint-lg) {
+    max-width: 1240px;
+    margin: auto;
+  }
+}
+.flex {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+}

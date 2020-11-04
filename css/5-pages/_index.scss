@@ -1,0 +1,374 @@
+nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 3;
+	background: $background;
+}
+.nav-container {
+	padding: 0.5rem 0;
+	flex-direction: row;
+	justify-content: space-between;
+	.logo {
+		width: 1.5rem;
+		padding: 0;
+		img {
+			width: 100%;
+			border-radius: 2rem;
+			&:hover {
+				animation: rotate360 0.5s;
+			}
+		}
+	}
+	label {
+		cursor: pointer;
+	}
+	.mobile-button {
+		display: block;
+		position: relative;
+		width: 1.75rem;
+		height: 4px;
+		margin: 0.3rem 0;
+		border-radius: 5px;
+		background-color: black;
+		content: "";
+		cursor: pointer;
+		transition: 0.25s ease-in-out;
+	}
+	#toggle:checked ~ .hamburger {
+		& > .mb-mid {
+			visibility: hidden;
+		}
+		& > .mb-top {
+			width: 1.65rem;
+			transform-origin: left top;
+			transform: rotate(45deg);
+		}
+		& > .mb-bot {
+			width: 1.65rem;
+			transform-origin: left bottom;
+			transform: rotate(-45deg);
+		}
+	}
+	#toggle {
+		display: none;
+	}
+	#toggle:checked ~ .menu-items {
+		display: block;
+	}
+	@media screen and (min-width: $breakpoint-md) {
+		padding: 0.8rem 0;
+
+		.logo {
+			width: 2rem;
+		}
+	}
+	@media screen and (min-width: $breakpoint-lg) {
+		padding: 1.1rem 0;
+		.logo {
+			padding: 0 0.5rem;
+			width: 3.25rem;
+		}
+		#toggle:checked ~ .menu-items,
+		#toggle:not(:checked) ~ .menu-items {
+			position: relative;
+			width: auto;
+			margin: 0.5rem 0;
+			padding: 0rem;
+			display: flex;
+			flex-flow: row wrap;
+			background-color: $background;
+		}
+		#toggle,
+		.hamburger {
+			display: none;
+		}
+	}
+}
+.menu-items {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 1.25rem;
+	width: 100%;
+	margin-top: 1.75rem;
+	padding: 1rem 0.5rem;
+	color: white;
+	background-color: $color-secondary;
+	li {
+		text-transform: uppercase;
+		a {
+			display: block;
+			padding: 1rem;
+		}
+	}
+	@media screen and (min-width: $breakpoint-md) {
+		top: 2rem;
+	}
+	@media screen and (min-width: $breakpoint-lg) {
+		top: unset;
+		li {
+			a {
+				display: inline-block;
+				margin-left: 1rem;
+				padding: 0.25rem 1rem;
+				color: $text-dark;
+			}
+		}
+	}
+}
+.header-container {
+	position: relative;
+	margin-top: 6rem;
+	h1 {
+		padding-right: 4rem;
+	}
+	p {
+		margin-bottom: 2.25rem;
+	}
+	@media screen and (min-width: $breakpoint-md) {
+		margin-bottom: -1rem;
+	}
+	@media screen and (min-width: $breakpoint-lg) {
+		flex-direction: row;
+		margin-top: 8rem;
+		margin-bottom: -4rem;
+		p {
+			max-width: 60%;
+		}
+	}
+}
+.episodes {
+	margin: 1rem 0;
+	padding: 5rem 0 8rem 0;
+	background: $gradient-bg;
+	clip-path: polygon(0 calc(0% + 4rem), 100% 0%, 100% calc(100% - 4rem), 0 100%);
+	h2 {
+		color: $text-clear;
+		text-align: left;
+	}
+	.iframe-container {
+		width: 100%;
+		iframe {
+			width: 100%;
+			margin-bottom: 1rem;
+			height: 14.5rem;
+			border: none;
+		}
+	}
+	@media screen and (min-width: $breakpoint-md) {
+		padding: 5rem 0 10rem 0;
+		clip-path: polygon(0 calc(0% + 4rem), 100% 0%, 100% calc(100% - 4rem), 0 100%);
+		h2 {
+			margin-top: 2rem;
+		}
+		.iframe-container {
+			margin-top: 2rem;
+			flex-flow: row wrap;
+			justify-content: space-between;
+			iframe {
+				max-width: 50%;
+				margin-bottom: 4.5rem;
+			}
+			iframe:nth-child(odd) {
+				padding-right: 2.25rem;
+			}
+			iframe:nth-child(even) {
+				padding-left: 2.25rem;
+			}
+		}
+	}
+	@media screen and (min-width: $breakpoint-lg) {
+		margin: 4rem 0 0 0;
+		padding: 8rem 0 10rem 0;
+		clip-path: polygon(0 calc(0% + 10rem), 100% 0%, 100% calc(100% - 10rem), 0 100%);
+	}
+}
+.about {
+	position: relative;
+	img {
+		margin-top: -8rem;
+		z-index: 2;
+	}
+	@media screen and (min-width: $breakpoint-md) {
+		margin-bottom: 4rem;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: flex-start;
+		.about-txt {
+			flex: 1 1 40%;
+		}
+		.about-txt p {
+			padding-right: 4rem;
+		}
+		img {
+			max-width: 550px;
+			margin: auto;
+			margin-top: -10rem;
+			padding: 0 5rem;
+		}
+	}
+	@media screen and (min-width: $breakpoint-lg) {
+		.about-img,
+		.about-txt {
+			width: 50%;
+		}
+		img {
+			padding: 0 4rem;
+		}
+		.about-txt p {
+			max-width: 85%;
+		}
+	}
+}
+.guests {
+	.img-container {
+		width: 100%;
+		@media screen and (min-width: $breakpoint-md) {
+			margin: 1rem auto;
+			flex-flow: row wrap;
+			img {
+				flex: 1 1 40%;
+			}
+		}
+	}
+	@media screen and (min-width: $breakpoint-lg) {
+		max-width: 1600px;
+		margin: 4rem auto;
+		.img-container {
+			img {
+				max-width: 33.33%;
+			}
+		}
+	}
+}
+.topics-container {
+	width: 100%;
+	margin-top: 2rem;
+	h2 {
+		align-self: flex-start;
+	}
+	img {
+		max-width: 6.25rem;
+		margin-bottom: 0.8rem;
+	}
+	.img-container {
+		margin-top: 0.5rem;
+	}
+	.topic {
+		margin-bottom: 4rem;
+		transition: 0.4s ease;
+	}
+	@media screen and (min-width: $breakpoint-md) {
+		margin: 0;
+		.img-container {
+			flex-direction: row;
+			align-items: flex-start;
+			.topic {
+				padding: 2rem;
+				flex: 1 1 35%;
+			}
+		}
+	}
+	@media screen and (min-width: $breakpoint-lg) {
+		.img-container {
+			justify-content: space-between;
+			.topic {
+				max-width: 25%;
+				transition: 0.4s ease;
+				&:hover {
+					@include transform(scale(1.2) translateY(-0.5rem));
+					transition: 0.4s ease;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}
+.news {
+	margin: 0rem 0;
+	margin-bottom: 0;
+	padding: 6rem 0 4rem 0;
+	background: $gradient-bg;
+	clip-path: polygon(0 calc(0% + 2rem), 100% 0%, 100% 100%, 0 100%);
+	h2 {
+		margin-bottom: 1rem;
+		text-align: center;
+		color: $text-clear;
+	}
+	p,
+	h3 {
+		text-align: left;
+		color: $text-clear;
+	}
+	@media screen and (min-width: $breakpoint-md) {
+		margin-bottom: 0;
+		padding: 6rem 0 6rem 0;
+		clip-path: polygon(0 calc(0% + 10%), 100% 0%, 100% 100%, 0 100%);
+		a i {
+			margin-left: 0.5rem;
+		}
+	}
+	@media screen and (min-width: $breakpoint-lg) {
+		margin-bottom: 0;
+		margin-top: 0;
+		padding: 14rem 0 8rem 0;
+		clip-path: polygon(0 calc(0% + 8rem), 100% 0%, 100% 100%, 0 100%);
+	}
+}
+.footer {
+	position: relative;
+	padding: 2rem 0;
+	z-index: 2;
+	background-color: $background;
+	a {
+		color: $text-dark;
+		transition: 0.2s;
+	}
+	p {
+		margin-bottom: 1rem;
+		font-size: 0.9rem;
+		text-align: center;
+	}
+	.social {
+		width: 100%;
+		flex-direction: row;
+		justify-content: space-between;
+		a {
+			padding: 1rem;
+		}
+	}
+	@media screen and (min-width: $breakpoint-md) {
+		padding: 2rem 0;
+		p {
+			margin: 0;
+			padding: 1rem;
+		}
+		.container-lg {
+			justify-content: space-between;
+		}
+		.social {
+			width: auto;
+			max-width: 800px;
+			a {
+				font-size: 1.125rem;
+				margin-left: 1.25rem;
+				padding: 1rem;
+			}
+			a:first-child {
+				margin-left: 0;
+			}
+		}
+	}
+	@media screen and (min-width: $breakpoint-lg) {
+		&.container-lg {
+			padding: 2rem 0;
+			flex-flow: row nowrap;
+			justify-content: space-between;
+			p {
+				padding: 0;
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1rem;
+  background: $color-primary;
+  color: $text-dark;
+  transition: 0.35s !important; // override del AOS transition
+  &:hover {
+    background: $gradient-btn;
+    color: $text-clear;
+    transition: 0.35s !important; // override del AOS transition
+  }
+  @media screen and (min-width: $breakpoint-md) {
+    padding: 1rem 5rem;
+    width: auto;
+    display: inline-block;
+  }
+  @media screen and (min-width: $breakpoint-lg) {
+    padding: 1rem 3rem;
+    font-size: 1.125rem;
+  }
+}

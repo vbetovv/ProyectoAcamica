@@ -1,0 +1,26 @@
+@keyframes vibration {
+  0% {
+    @include transform(rotate(15deg) scale(1.2));
+    transition: ease-in-out;
+  }
+  33% {
+    @include transform(rotate(-15deg) scale(1.2));
+    transition: ease-in-out;
+  }
+  66% {
+    @include transform(rotate(15deg) scale(1.2));
+    transition: ease-in-out;
+  }
+  100% {
+    @include transform(rotate(-15deg) scale(1.2));
+    transition: ease-in-out;
+  }
+}
+@keyframes rotate360 {
+  0% {
+    @include transform(rotate(0deg));
+  }
+  100% {
+    @include transform(rotate(360deg));
+  }
+}
